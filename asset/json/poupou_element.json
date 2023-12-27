@@ -1,0 +1,42 @@
+[
+ {
+  "title": "aqua",
+  "terrain": "pond",
+  "hue": 210
+ },
+ {
+  "title": "plant",
+  "terrain": "grass",
+  "hue": 120
+ },
+ {
+  "title": "earth",
+  "terrain": "rock",
+  "hue": 30
+ },
+ {
+  "title": "fire",
+  "terrain": "sand",
+  "hue": 60
+ },
+ {
+  "title": "wind",
+  "terrain": "geyser",
+  "hue": 320
+ },
+ {
+  "title": "tempest",
+  "terrain": "wasteland",
+  "hue": 270
+ },
+ {
+  "title": "lava",
+  "terrain": "volcano",
+  "hue": 0
+ },
+ {
+  "title": "ice",
+  "terrain": "snow",
+  "hue": 180
+ }
+]

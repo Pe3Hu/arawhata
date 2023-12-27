@@ -1,0 +1,110 @@
+[
+ {
+  "title": "ocean",
+  "terrain": "pond",
+  "corner": 1,
+  "edge": 1,
+  "size": 3,
+  "donor": "wasteland",
+  "near": "border"
+ },
+ {
+  "title": "lake",
+  "terrain": "pond",
+  "center": 1,
+  "size": 4,
+  "donor": "wasteland"
+ },
+ {
+  "title": "river",
+  "terrain": "pond",
+  "corner": 1,
+  "edge": 1,
+  "center": 1,
+  "size": 3,
+  "donor": "wasteland"
+ },
+ {
+  "title": "mountain",
+  "terrain": "rock",
+  "edge": 1,
+  "center": 1,
+  "size": 5,
+  "donor": "wasteland"
+ },
+ {
+  "title": "reef",
+  "terrain": "rock",
+  "corner": 1,
+  "edge": 1,
+  "center": 1,
+  "size": 3,
+  "donor": "wasteland",
+  "near": "ocean"
+ },
+ {
+  "title": "prairie",
+  "terrain": "grass",
+  "center": 1,
+  "size": 5,
+  "donor": "wasteland"
+ },
+ {
+  "title": "forest",
+  "terrain": "grass",
+  "corner": 1,
+  "edge": 1,
+  "center": 1,
+  "size": 5,
+  "donor": "wasteland"
+ },
+ {
+  "title": "beach",
+  "terrain": "sand",
+  "size": 3,
+  "donor": "wasteland",
+  "near": "pond"
+ },
+ {
+  "title": "desert",
+  "terrain": "sand",
+  "size": 5,
+  "donor": "prairie"
+ },
+ {
+  "title": "geyser",
+  "terrain": "wind",
+  "size": 3,
+  "donor": "pond"
+ },
+ {
+  "title": "volcano",
+  "terrain": "lava",
+  "size": 5,
+  "donor": "mountain"
+ },
+ {
+  "title": "iceberg",
+  "terrain": "ice",
+  "size": 3,
+  "donor": "pond"
+ },
+ {
+  "title": "taiga",
+  "terrain": "ice",
+  "size": 5,
+  "donor": "forest"
+ },
+ {
+  "title": "jungle",
+  "terrain": "plant",
+  "size": 5,
+  "donor": "forest"
+ },
+ {
+  "title": "coral",
+  "terrain": "plant",
+  "size": 3,
+  "donor": "reef"
+ }
+]
