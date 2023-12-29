@@ -4,9 +4,9 @@ extends MarginContainer
 @onready var bg = $BG
 @onready var index = $Index
 
-
 var step = null
 var aisle = null
+var stash = null
 var type = null
 
 
@@ -36,3 +36,16 @@ func set_aisle(aisle_: MarginContainer, type_: String) -> void:
 	var style = bg.get("theme_override_styles/panel")
 	style.bg_color = Global.color.doorway[type]
 	visible = true
+	
+	if type == "entry" and aisle.measure == "stairwell":
+		step.obstacle = aisle
+
+
+func set_stash(stash_: MarginContainer) -> void:
+	type = "stash"
+	stash = stash_
+	
+	var style = bg.get("theme_override_styles/panel")
+	style.bg_color = Global.color.doorway[type]
+	visible = true
+	step.obstacle = stash

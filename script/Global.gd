@@ -25,6 +25,8 @@ func _ready() -> void:
 func init_arr() -> void:
 	arr.edge = [1, 2, 3, 4, 5, 6]
 	arr.direction = ["up", "right", "down", "left"]
+	arr.traveler = ["sage", "guardian"]
+	arr.portal = ["trail", "trap"]
 
 
 func init_num() -> void:
@@ -50,6 +52,17 @@ func init_dict() -> void:
 	dict.aisle.side["up to down"] = {}
 	dict.aisle.side["up to down"]["entry"] = "down"
 	dict.aisle.side["up to down"]["exit"] = "up"
+	
+	dict.aisle.pair = {}
+	dict.aisle.pair["entry"] = "exit"
+	dict.aisle.pair["exit"] = "entry"
+	
+	dict.obstacle = {}
+	dict.obstacle.direction = {}
+	dict.obstacle.direction["sage"] = "up to down"
+	dict.obstacle.direction["trail"] = "up to down"
+	dict.obstacle.direction["guardian"] = "down to up"
+	dict.obstacle.direction["trap"] = "down to up"
 
 
 func init_neighbor() -> void:
@@ -126,6 +139,8 @@ func init_scene() -> void:
 	scene.ladder = load("res://scene/2/ladder.tscn")
 	scene.step = load("res://scene/2/step.tscn")
 	scene.aisle = load("res://scene/2/aisle.tscn")
+	scene.stash = load("res://scene/2/stash.tscn")
+	scene.traveler = load("res://scene/2/traveler.tscn")
 
 
 func init_vec():
@@ -139,7 +154,7 @@ func init_vec():
 	vec.size.box = Vector2(100, 100)
 	vec.size.bar = Vector2(120, 12)
 	
-	vec.size.step = Vector2(96, 96)
+	vec.size.step = Vector2(80, 80)
 	#vec.size.part = Vector2(16, 16)
 	
 	init_window_size()

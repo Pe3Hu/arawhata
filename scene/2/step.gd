@@ -10,14 +10,18 @@ extends MarginContainer
 
 var ladder = null
 var grid = null
-var type = null
+var border = null
+var status = null
+var obstacle = null
 var aisles = {}
+var continuation = null
 
 
 func set_attributes(input_: Dictionary) -> void:
 	ladder = input_.ladder
 	grid = input_.grid
-	type = input_.type
+	border = input_.border
+	status = input_.status
 	
 	init_basic_setting()
 
@@ -26,6 +30,10 @@ func init_basic_setting() -> void:
 	custom_minimum_size = Global.vec.size.step
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color.SLATE_GRAY
+	
+	if status != "path":
+		style.bg_color = Color.GRAY
+	
 	bg.set("theme_override_styles/panel", style)
 	
 	var input = {}
@@ -46,8 +54,31 @@ func set_doorways() -> void:
 		doorway.set_attributes(input)
 
 
-
 func add_aisle(aisle_: MarginContainer, side_: String, type_: String) -> void:
 	aisles[aisle_] = side_
 	var doorway = get(side_)
 	doorway.set_aisle(aisle_, type_)
+
+
+func set_stash(stash_: MarginContainer) -> void:
+	var sides = ["left", "right"]
+	
+	for side in sides:
+		var doorway = get(side)
+		
+		if doorway.visible:
+			sides.erase(side)
+			break
+	
+	var doorway = get(sides.front())
+	doorway.set_stash(stash_)
+
+
+func recolor(color_: String) -> void:
+	var style = bg.get("theme_override_styles/panel")
+	style.bg_color = Color(color_)
+
+
+func rehue(hue_: float) -> void:
+	var style = bg.get("theme_override_styles/panel")
+	style.bg_color = Color.from_hsv(hue_, 1, 1)

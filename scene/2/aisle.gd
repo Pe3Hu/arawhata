@@ -8,13 +8,15 @@ extends MarginContainer
 
 var ladder = null
 var steps = null
-var type = null
+var direction = null
+var measure = null
 
 
 func set_attributes(input_: Dictionary) -> void:
 	ladder = input_.ladder
 	steps = input_.steps
-	type = input_.type
+	direction = input_.direction
+	measure = input_.measure
 	
 	init_basic_setting()
 
@@ -42,6 +44,9 @@ func init_basic_setting() -> void:
 				_type = "exit"
 		
 		set_doorway(step, _type)
+	
+	if measure == "step":
+		steps.front().continuation = steps.back()
 
 
 func set_doorway(step_: MarginContainer, type_: String) -> void:
@@ -58,6 +63,5 @@ func set_doorway(step_: MarginContainer, type_: String) -> void:
 	#var style = icon.bg.get("theme_override_styles/panel")
 	#style.bg_color = Global.color.doorway[type_]
 	
-	var side = Global.dict.aisle.side[type][type_]
+	var side = Global.dict.aisle.side[direction][type_]
 	step_.add_aisle(self, side, type_)
-	

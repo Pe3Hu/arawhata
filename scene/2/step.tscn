@@ -33,21 +33,17 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="Up" parent="." instance=ExtResource("3_bog15")]
-visible = false
 layout_mode = 2
 size_flags_vertical = 0
 
 [node name="Right" parent="." instance=ExtResource("3_bog15")]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="Down" parent="." instance=ExtResource("3_bog15")]
-visible = false
 layout_mode = 2
 size_flags_vertical = 8
 
 [node name="Left" parent="." instance=ExtResource("3_bog15")]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0

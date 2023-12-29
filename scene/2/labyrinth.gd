@@ -16,7 +16,7 @@ func init_ladders() -> void:
 	for _i in 1:
 		var input = {}
 		input.labyrinth = self
-		input.dimensions = Vector2(5, 7)
+		input.dimensions = Vector2(7, 9)
 	
 		var ladder = Global.scene.ladder.instantiate()
 		ladders.add_child(ladder)
