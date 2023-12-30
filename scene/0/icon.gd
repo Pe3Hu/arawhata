@@ -14,6 +14,11 @@ func set_attributes(input_: Dictionary) -> void:
 	subtype = input_.subtype
 	
 	custom_minimum_size = Vector2(Global.vec.size.letter)
+	
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color.DIM_GRAY
+	bg.set("theme_override_styles/panel", style)
+	
 	var path = "res://asset/png/"
 	var exceptions = ["number"]
 	

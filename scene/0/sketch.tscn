@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8p8p11wpyu27"]
 
 [ext_resource type="Script" path="res://scene/0/sketch.gd" id="1_g4to8"]
-[ext_resource type="PackedScene" uid="uid://tiu625irnnwp" path="res://scene/1/cradle.tscn" id="1_i3egr"]
-[ext_resource type="PackedScene" uid="uid://dccwttt6848s5" path="res://scene/2/labyrinth.tscn" id="3_xgi5l"]
+[ext_resource type="PackedScene" uid="uid://bhts5cn6qtrfo" path="res://scene/1/cradle.tscn" id="2_25j5a"]
+[ext_resource type="PackedScene" uid="uid://g0amwm3hsngg" path="res://scene/3/labyrinth.tscn" id="3_xgi5l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 bg_color = Color(0.372549, 0.372549, 0.372549, 1)
@@ -31,7 +31,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="Cradle" parent="HBox" instance=ExtResource("1_i3egr")]
+[node name="Cradle" parent="HBox" instance=ExtResource("2_25j5a")]
 layout_mode = 2
 
 [node name="Labyrinth" parent="HBox" instance=ExtResource("3_xgi5l")]

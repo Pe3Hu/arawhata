@@ -1,7 +1,7 @@
 extends MarginContainer
 
 
-@onready var pantheons = $Pantheons
+@onready var guilds = $Guilds
 
 var sketch = null
 
@@ -9,14 +9,14 @@ var sketch = null
 func set_attributes(input_: Dictionary) -> void:
 	sketch = input_.sketch
 	
-	init_pantheons()
+	init_guilds()
 
 
-func init_pantheons() -> void:
+func init_guilds() -> void:
 	for _i in 1:
 		var input = {}
 		input.cradle = self
 	
-		var pantheon = Global.scene.pantheon.instantiate()
-		pantheons.add_child(pantheon)
-		pantheon.set_attributes(input)
+		var guild = Global.scene.guild.instantiate()
+		guilds.add_child(guild)
+		guild.set_attributes(input)

@@ -27,17 +27,35 @@ func init_arr() -> void:
 	arr.direction = ["up", "right", "down", "left"]
 	arr.traveler = ["sage", "guardian"]
 	arr.portal = ["trail", "trap"]
+	arr.root = ["strength", "dexterity", "intellect", "will"]
+	arr.branch = ["volume", "replenishment", "endeavor", "tension", "resistance"]
+	arr.scheme = ["module", "connector"]
 
 
 func init_num() -> void:
 	num.index = {}
 	num.index.step = 0
 	num.index.aisle = 0
+	
+	num.aspect = {}
+	num.aspect.min = 0
+	num.aspect.max = 400
+	
+	num.module = {}
+	num.module.r = 20
+	
+	num.connector = {}
+	num.connector.h = num.module.r * 2 * sqrt(3) / 2
+	num.connector.l = num.module.r * 3
 
 
 func init_dict() -> void:
 	init_neighbor()
-	
+	init_labyrinth()
+	init_aspect()
+
+
+func init_labyrinth() -> void:
 	dict.aisle = {}
 	dict.aisle.side = {}
 	dict.aisle.side["left to right"] = {}
@@ -63,6 +81,12 @@ func init_dict() -> void:
 	dict.obstacle.direction["trail"] = "up to down"
 	dict.obstacle.direction["guardian"] = "down to up"
 	dict.obstacle.direction["trap"] = "down to up"
+	
+	
+	dict.traveler = {}
+	dict.traveler.doorway = {}
+	dict.traveler.doorway["guardian"] = "up"
+	dict.traveler.doorway["sage"] = "down"
 
 
 func init_neighbor() -> void:
@@ -111,21 +135,45 @@ func init_neighbor() -> void:
 	]
 
 
-func init_blank() -> void:
-	dict.blank = {}
-	dict.blank.title = {}
+func init_aspect() -> void:
+	dict.aspect = {}
+	dict.aspect.title = {}
 	
-	var path = "res://asset/json/poupou_blank.json"
+	dict.branch = {}
+	dict.branch.root = {}
+	dict.root = {}
+	dict.root.branch = {}
+	
+	var path = "res://asset/json/arawhata_aspect.json"
 	var array = load_data(path)
 	
-	for blank in array:
+	for aspect in array:
 		var data = {}
 		
-		for key in blank:
-			if key != "title":
-				data[key] = blank[key]
+		for key in aspect:
+			if key != "title" and !arr.root.has(key):
+				data[key] = aspect[key]
 		
-		dict.blank.title[blank.title] = data
+		
+		if !dict.branch.root.has(aspect.title):
+			dict.branch.root[aspect.title] = {}
+		
+		for root in arr.root:
+			if !dict.root.branch.has(root):
+				dict.root.branch[root] = {}
+			
+			dict.root.branch[root][aspect.title] = aspect[root]
+			dict.branch.root[aspect.title][root] = aspect[root]
+			dict.aspect.title[aspect[root]] = {}
+			
+			for key in data:
+				dict.aspect.title[aspect[root]][key] = data[key]
+			
+			dict.aspect.title[aspect[root]].branch = aspect.title
+			dict.aspect.title[aspect[root]].root = root
+			num.aspect.min += dict.aspect.title[aspect[root]].min
+	
+	print(num.aspect.min)
 
 
 func init_node() -> void:
@@ -133,14 +181,20 @@ func init_node() -> void:
 
 
 func init_scene() -> void:
-	scene.pantheon = load("res://scene/1/pantheon.tscn")
-	scene.god = load("res://scene/1/god.tscn")
+	scene.icon = load("res://scene/0/icon.tscn")
 	
-	scene.ladder = load("res://scene/2/ladder.tscn")
-	scene.step = load("res://scene/2/step.tscn")
-	scene.aisle = load("res://scene/2/aisle.tscn")
-	scene.stash = load("res://scene/2/stash.tscn")
-	scene.traveler = load("res://scene/2/traveler.tscn")
+	scene.guild = load("res://scene/1/guild.tscn")
+	scene.member = load("res://scene/1/member.tscn")
+	
+	scene.aspect = load("res://scene/2/aspect.tscn")
+	#scene.module = load("res://scene/2/module.tscn")
+	
+	
+	scene.ladder = load("res://scene/3/ladder.tscn")
+	scene.step = load("res://scene/3/step.tscn")
+	scene.aisle = load("res://scene/3/aisle.tscn")
+	scene.stash = load("res://scene/3/stash.tscn")
+	scene.traveler = load("res://scene/3/traveler.tscn")
 
 
 func init_vec():
@@ -155,6 +209,7 @@ func init_vec():
 	vec.size.bar = Vector2(120, 12)
 	
 	vec.size.step = Vector2(80, 80)
+	vec.size.scheme = Vector2(900, 700)
 	#vec.size.part = Vector2(16, 16)
 	
 	init_window_size()
@@ -175,6 +230,18 @@ func init_color():
 	color.doorway.exit = Color.from_hsv(270 / h, 0.6, 0.7)
 	color.doorway.stash = Color.from_hsv(120 / h, 0.6, 0.7)
 	#color.step.aisle = Color.from_hsv(60 / h, 0.6, 0.7)
+	
+	color.route = {}
+	color.route.active = Color.from_hsv(30 / h, 0.6, 0.7)
+	color.route.passive = Color.from_hsv(120 / h, 0.6, 0.7)
+	
+	color.traveler = {}
+	color.traveler.guardian = Color.from_hsv(0 / h, 0.6, 0.7)
+	color.traveler.sage = Color.from_hsv(210 / h, 0.6, 0.7)
+	
+	color.scheme = {}
+	color.scheme.module = Color.from_hsv(270 / h, 0.9, 0.7)
+	color.scheme.connector = Color.from_hsv(30 / h, 0.9, 0.7)
 
 
 func save(path_: String, data_: String):
