@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://460rkj8trcn5"]
+[gd_scene load_steps=6 format=3 uid="uid://460rkj8trcn5"]
 
 [ext_resource type="Script" path="res://scene/1/member.gd" id="1_b0mcn"]
 [ext_resource type="PackedScene" uid="uid://bf62c6vgstb83" path="res://scene/2/rundown.tscn" id="2_yhv25"]
+[ext_resource type="PackedScene" uid="uid://ciw38iqel0v5a" path="res://scene/0/icon.tscn" id="2_yq3m3"]
+[ext_resource type="PackedScene" uid="uid://likoypjmwtku" path="res://scene/2/indicators.tscn" id="3_q5hon"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 bg_color = Color(0.32549, 0.32549, 0.32549, 0)
@@ -31,5 +33,12 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 layout_mode = 2
 alignment = 1
 
+[node name="Index" parent="HBox" instance=ExtResource("2_yq3m3")]
+layout_mode = 2
+
 [node name="Rundown" parent="HBox" instance=ExtResource("2_yhv25")]
+visible = false
+layout_mode = 2
+
+[node name="Indicators" parent="HBox" instance=ExtResource("3_q5hon")]
 layout_mode = 2

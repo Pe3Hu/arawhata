@@ -5,11 +5,14 @@ extends MarginContainer
 @onready var aisles = $HBox/Aisles
 @onready var stashes = $HBox/Stashes
 @onready var travelers = $HBox/Travelers
+@onready var squads = $HBox/Squads
+@onready var queue = $HBox/Queue
 @onready var timer = $Timer
 
 var labyrinth = null
 var dimensions = null
 var iteration = 0
+var winner = null
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -20,6 +23,7 @@ func set_attributes(input_: Dictionary) -> void:
 	init_aisles()
 	init_stashes()
 	init_travelers()
+	#Engine.time_scale = 3
 
 
 func init_steps() -> void:
@@ -304,3 +308,30 @@ func next_iteration() -> void:
 
 func _on_timer_timeout():
 	next_iteration()
+
+
+func add_squad(squad_: MarginContainer) -> void:
+	squad_.ladder = self
+	squads.add_child(squad_)
+
+
+func commence() -> void:
+	#winner = left
+	
+	var input = {}
+	input.ladder = self
+	queue.set_attributes(input)
+	queue.full_activation()
+	#timer.start()
+
+
+func get_end_of_advancement(start_: MarginContainer, distance_: int) -> MarginContainer:
+	var end = start_
+	
+	for _i in distance_:
+		if end.continuation != null:
+			end = end.continuation
+		else:
+			break
+	
+	return end

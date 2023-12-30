@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scene/3/step.gd" id="1_o611h"]
 [ext_resource type="PackedScene" uid="uid://ciw38iqel0v5a" path="res://scene/0/icon.tscn" id="2_ceal7"]
-[ext_resource type="PackedScene" path="res://scene/3/doorway.tscn" id="3_bog15"]
+[ext_resource type="PackedScene" uid="uid://dqhed4vxqlh5p" path="res://scene/3/doorway.tscn" id="3_bog15"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
@@ -47,3 +47,9 @@ size_flags_vertical = 8
 [node name="Left" parent="." instance=ExtResource("3_bog15")]
 layout_mode = 2
 size_flags_horizontal = 0
+
+[node name="Markers" type="GridContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2

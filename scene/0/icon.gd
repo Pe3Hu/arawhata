@@ -7,6 +7,7 @@ extends MarginContainer
 
 var type = null
 var subtype = null
+var proprietor = null
 
 
 func set_attributes(input_: Dictionary) -> void:

@@ -10,3 +10,8 @@ func _ready() -> void:
 	input.sketch = self
 	cradle.set_attributes(input)
 	labyrinth.set_attributes(input)
+	
+	for guild in cradle.guilds.get_children():
+		guild.choose_ladder()
+	
+	labyrinth.ladders.get_child(0).commence()

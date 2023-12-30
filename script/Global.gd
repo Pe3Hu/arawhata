@@ -36,17 +36,14 @@ func init_num() -> void:
 	num.index = {}
 	num.index.step = 0
 	num.index.aisle = 0
+	num.index.member = 0
 	
 	num.aspect = {}
 	num.aspect.min = 0
 	num.aspect.max = 400
 	
-	num.module = {}
-	num.module.r = 20
-	
-	num.connector = {}
-	num.connector.h = num.module.r * 2 * sqrt(3) / 2
-	num.connector.l = num.module.r * 3
+	num.step = {}
+	num.step.limit = 4
 
 
 func init_dict() -> void:
@@ -172,8 +169,6 @@ func init_aspect() -> void:
 			dict.aspect.title[aspect[root]].branch = aspect.title
 			dict.aspect.title[aspect[root]].root = root
 			num.aspect.min += dict.aspect.title[aspect[root]].min
-	
-	print(num.aspect.min)
 
 
 func init_node() -> void:
@@ -185,10 +180,9 @@ func init_scene() -> void:
 	
 	scene.guild = load("res://scene/1/guild.tscn")
 	scene.member = load("res://scene/1/member.tscn")
+	scene.squad = load("res://scene/1/squad.tscn")
 	
 	scene.aspect = load("res://scene/2/aspect.tscn")
-	#scene.module = load("res://scene/2/module.tscn")
-	
 	
 	scene.ladder = load("res://scene/3/ladder.tscn")
 	scene.step = load("res://scene/3/step.tscn")
@@ -206,7 +200,7 @@ func init_vec():
 	
 	vec.size.aspect = Vector2(32, 32)
 	vec.size.box = Vector2(100, 100)
-	vec.size.bar = Vector2(120, 12)
+	vec.size.bar = Vector2(16, 164)
 	
 	vec.size.step = Vector2(80, 80)
 	vec.size.scheme = Vector2(900, 700)
@@ -242,6 +236,20 @@ func init_color():
 	color.scheme = {}
 	color.scheme.module = Color.from_hsv(270 / h, 0.9, 0.7)
 	color.scheme.connector = Color.from_hsv(30 / h, 0.9, 0.7)
+	
+	color.indicator = {}
+	color.indicator.strength = {}
+	color.indicator.strength.fill = Color.from_hsv(0, 0.9, 0.7)
+	color.indicator.strength.background = Color.from_hsv(0, 0.5, 0.9)
+	color.indicator.dexterity = {}
+	color.indicator.dexterity.fill = Color.from_hsv(120 / h, 0.9, 0.7)
+	color.indicator.dexterity.background = Color.from_hsv(120 / h, 0.5, 0.9)
+	color.indicator.intellect = {}
+	color.indicator.intellect.fill = Color.from_hsv(210 / h, 0.9, 0.7)
+	color.indicator.intellect.background = Color.from_hsv(210 / h, 0.5, 0.9)
+	color.indicator.will = {}
+	color.indicator.will.fill = Color.from_hsv(60 / h, 0.9, 0.7)
+	color.indicator.will.background = Color.from_hsv(60 / h, 0.5, 0.9)
 
 
 func save(path_: String, data_: String):

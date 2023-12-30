@@ -7,6 +7,7 @@ extends MarginContainer
 @onready var right = $Right
 @onready var down = $Down
 @onready var left = $Left
+@onready var markers = $Markers
 
 var ladder = null
 var grid = null
@@ -82,3 +83,22 @@ func recolor(color_: String) -> void:
 func rehue(hue_: float) -> void:
 	var style = bg.get("theme_override_styles/panel")
 	style.bg_color = Color.from_hsv(hue_, 1, 1)
+
+
+func add_member(member_: MarginContainer) -> void:
+	if Global.num.step.limit >= markers.get_child_count():
+		if member_.marker == null:
+			var input = {}
+			input.type = "number"
+			input.subtype = member_.index.get_number()
+			
+			member_.marker = Global.scene.icon.instantiate()
+			markers.add_child(member_.marker)
+			member_.marker.set_attributes(input)
+			member_.marker.custom_minimum_size = Vector2(Global.vec.size.sixteen)
+		
+		member_.step.markers.remove_child(member_.marker)
+		markers.add_child(member_.marker)
+		member_.step = self
+	else:
+		continuation.add_member(member_)
