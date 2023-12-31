@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://barcoxs70qkd0"]
+[gd_scene load_steps=4 format=3 uid="uid://barcoxs70qkd0"]
 
 [ext_resource type="Script" path="res://scene/3/stash.gd" id="1_hgtrg"]
+[ext_resource type="PackedScene" uid="uid://ciw38iqel0v5a" path="res://scene/0/icon.tscn" id="2_h70rd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
@@ -25,3 +26,17 @@ script = ExtResource("1_hgtrg")
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Index" parent="HBox" instance=ExtResource("2_h70rd")]
+layout_mode = 2
+
+[node name="Difficulty" parent="HBox" instance=ExtResource("2_h70rd")]
+layout_mode = 2
+
+[node name="Reward" parent="HBox" instance=ExtResource("2_h70rd")]
+layout_mode = 2

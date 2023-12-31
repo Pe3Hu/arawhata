@@ -35,6 +35,9 @@ alignment = 1
 [node name="Index" parent="HBox" instance=ExtResource("2_8334v")]
 layout_mode = 2
 
+[node name="Difficulty" parent="HBox" instance=ExtResource("2_8334v")]
+layout_mode = 2
+
 [node name="Entry" parent="HBox" instance=ExtResource("2_8334v")]
 layout_mode = 2
 

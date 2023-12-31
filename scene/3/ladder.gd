@@ -1,18 +1,19 @@
 extends MarginContainer
 
 
-@onready var steps = $HBox/Steps
-@onready var aisles = $HBox/Aisles
-@onready var stashes = $HBox/Stashes
-@onready var travelers = $HBox/Travelers
-@onready var squads = $HBox/Squads
-@onready var queue = $HBox/Queue
+@onready var steps = $VBox/HBox/Steps
+@onready var aisles = $VBox/HBox/Aisles
+@onready var stashes = $VBox/HBox/Stashes
+@onready var travelers = $VBox/HBox/Travelers
+@onready var squads = $VBox/HBox/Squads
+@onready var queue = $VBox/HBox/Queue
+@onready var encounter = $VBox/Encounter
 @onready var timer = $Timer
 
 var labyrinth = null
 var dimensions = null
 var iteration = 0
-var winner = null
+var active = true
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -141,6 +142,7 @@ func init_portals() -> void:
 			input.measure = "stairwell"
 			input.steps = []
 			input.direction = directions[portal]
+			input.type = portal
 			
 			var step = options[portal].pick_random()
 			input.steps.append(step)
@@ -302,12 +304,21 @@ func get_step(grid_: Vector2) -> Variant:
 
 
 func next_iteration() -> void:
+	timer.paused = true
+	
 	for traveler in travelers.get_children():
 		traveler.enroute()
+	
+	queue.rest()
+	timer.paused = false 
 
 
 func _on_timer_timeout():
-	next_iteration()
+	if active:
+		queue.activation()
+	else:
+		timer.paused = true
+		awarding()
 
 
 func add_squad(squad_: MarginContainer) -> void:
@@ -316,13 +327,11 @@ func add_squad(squad_: MarginContainer) -> void:
 
 
 func commence() -> void:
-	#winner = left
-	
 	var input = {}
 	input.ladder = self
 	queue.set_attributes(input)
-	queue.full_activation()
-	#timer.start()
+	encounter.set_attributes(input)
+	timer.start()
 
 
 func get_end_of_advancement(start_: MarginContainer, distance_: int) -> MarginContainer:
@@ -335,3 +344,14 @@ func get_end_of_advancement(start_: MarginContainer, distance_: int) -> MarginCo
 			break
 	
 	return end
+
+
+func awarding() -> void:
+	return
+	var members = []
+	
+	for squad in squads.get_children():
+		for member in squad.members.get_children():
+			members.append(member)
+	
+	members.sort_custom(func(a, b): return a.step.index.get_number() > b.step.index.get_number())

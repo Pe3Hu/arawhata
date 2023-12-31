@@ -30,12 +30,15 @@ func init_arr() -> void:
 	arr.root = ["strength", "dexterity", "intellect", "will"]
 	arr.branch = ["volume", "replenishment", "endeavor", "tension", "resistance"]
 	arr.scheme = ["module", "connector"]
+	arr.side = ["left", "right"]
+	arr.initiative = ["aggressor", "defender"]
 
 
 func init_num() -> void:
 	num.index = {}
 	num.index.step = 0
 	num.index.aisle = 0
+	num.index.stash = 0
 	num.index.member = 0
 	
 	num.aspect = {}
@@ -79,11 +82,17 @@ func init_labyrinth() -> void:
 	dict.obstacle.direction["guardian"] = "down to up"
 	dict.obstacle.direction["trap"] = "down to up"
 	
-	
 	dict.traveler = {}
 	dict.traveler.doorway = {}
 	dict.traveler.doorway["guardian"] = "up"
 	dict.traveler.doorway["sage"] = "down"
+	
+	dict.obstacle.initiative = {}
+	dict.obstacle.initiative["sage"] = "defender"
+	dict.obstacle.initiative["trail"] = "defender"
+	dict.obstacle.initiative["stash"] = "defender"
+	dict.obstacle.initiative["guardian"] = "aggressor"
+	dict.obstacle.initiative["trap"] = "aggressor"
 
 
 func init_neighbor() -> void:
@@ -204,6 +213,7 @@ func init_vec():
 	
 	vec.size.step = Vector2(80, 80)
 	vec.size.scheme = Vector2(900, 700)
+	vec.size.encounter = Vector2(128, 200)
 	#vec.size.part = Vector2(16, 16)
 	
 	init_window_size()
@@ -226,16 +236,12 @@ func init_color():
 	#color.step.aisle = Color.from_hsv(60 / h, 0.6, 0.7)
 	
 	color.route = {}
-	color.route.active = Color.from_hsv(30 / h, 0.6, 0.7)
-	color.route.passive = Color.from_hsv(120 / h, 0.6, 0.7)
+	color.route.active = Color.from_hsv(330 / h, 0.6, 0.7)
+	color.route.passive = Color.from_hsv(30 / h, 0.6, 0.7)
 	
 	color.traveler = {}
 	color.traveler.guardian = Color.from_hsv(0 / h, 0.6, 0.7)
 	color.traveler.sage = Color.from_hsv(210 / h, 0.6, 0.7)
-	
-	color.scheme = {}
-	color.scheme.module = Color.from_hsv(270 / h, 0.9, 0.7)
-	color.scheme.connector = Color.from_hsv(30 / h, 0.9, 0.7)
 	
 	color.indicator = {}
 	color.indicator.strength = {}
@@ -250,6 +256,8 @@ func init_color():
 	color.indicator.will = {}
 	color.indicator.will.fill = Color.from_hsv(60 / h, 0.9, 0.7)
 	color.indicator.will.background = Color.from_hsv(60 / h, 0.5, 0.9)
+	
+	color.difficulty = Color.from_hsv(150 / h, 0.6, 0.7)
 
 
 func save(path_: String, data_: String):

@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhfc622s1126i"]
+[gd_scene load_steps=4 format=3 uid="uid://dxmnh0dul7103"]
 
-[ext_resource type="Script" path="res://scene/3/queue.gd" id="1_lf2ds"]
+[ext_resource type="Script" path="res://scene/4/pool.gd" id="1_icdm5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 
-[node name="Queue" type="MarginContainer"]
+[sub_resource type="GDScript" id="GDScript_0l4gr"]
+script/source = "extends HBoxContainer
+"
+
+[node name="Pool" type="MarginContainer"]
 custom_minimum_size = Vector2(5, 5)
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,21 +23,14 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_lf2ds")
+script = ExtResource("1_icdm5")
 
 [node name="BG" type="Panel" parent="."]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="Dices" type="HBoxContainer" parent="."]
 layout_mode = 2
 alignment = 1
-
-[node name="Vigorous" type="VBoxContainer" parent="HBox"]
-layout_mode = 2
-alignment = 1
-
-[node name="Tired" type="VBoxContainer" parent="HBox"]
-layout_mode = 2
-alignment = 1
+script = SubResource("GDScript_0l4gr")

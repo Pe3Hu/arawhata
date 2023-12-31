@@ -77,3 +77,14 @@ func get_root_based_on_tension() -> Array:
 	roots.sort_custom(func(a, b): return rundown.get_aspect_based_on_root_and_branch(a, "tension").get_base_of_quadratic_degree() < rundown.get_aspect_based_on_root_and_branch(b, "tension").get_base_of_quadratic_degree())
 	return roots
 
+
+func rest() -> void:
+	for root in Global.arr.root:
+		energize(root)
+
+
+func energize(root_: String) -> void:
+	var indicator = indicators.get_indicator(root_)
+	var aspect = rundown.get_aspect_based_on_root_and_branch(root_, "replenishment")
+	var base = aspect.get_base_of_quadratic_degree()
+	indicator.change_value("current", base)

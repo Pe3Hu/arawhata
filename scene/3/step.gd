@@ -100,5 +100,24 @@ func add_member(member_: MarginContainer) -> void:
 		member_.step.markers.remove_child(member_.marker)
 		markers.add_child(member_.marker)
 		member_.step = self
+		
+		obstacle_impact(member_)
 	else:
 		continuation.add_member(member_)
+
+
+func obstacle_impact(member_: MarginContainer) -> void:
+	if status == "finish":
+		ladder.active = false
+		return
+	
+	if obstacle != null:
+		var initiatives = {}
+		
+		for initiative in Global.arr.initiative:
+			if initiative == Global.dict.obstacle.initiative[obstacle.type]:
+				initiatives[initiative] = obstacle
+			else:
+				initiatives[initiative] = member_
+		
+		ladder.active = false

@@ -1,7 +1,8 @@
 extends MarginContainer
 
 
-@onready var members = $Members
+@onready var vigorous = $HBox/Vigorous
+@onready var tired = $HBox/Tired
 
 var ladder = null
 
@@ -9,10 +10,10 @@ var ladder = null
 func set_attributes(input_: Dictionary) -> void:
 	ladder = input_.ladder
 	
-	fill_members()
+	fill_vigorous()
 
 
-func fill_members() -> void:
+func fill_vigorous() -> void:
 	var options = []
 	
 	for squad in ladder.squads.get_children():
@@ -26,7 +27,7 @@ func fill_members() -> void:
 		input.subtype = member.index.get_number()
 		
 		var icon = Global.scene.icon.instantiate()
-		members.add_child(icon)
+		vigorous.add_child(icon)
 		icon.set_attributes(input)
 		icon.custom_minimum_size = Vector2(Global.vec.size.sixteen)
 		icon.proprietor = member
@@ -34,14 +35,23 @@ func fill_members() -> void:
 
 
 func full_activation() -> void:
-	var n = members.get_child_count()
-	
-	for _i in n:
+	while vigorous.get_child_count() > 0:
 		activation()
 
 
 func activation() -> void:
-	var member = members.get_child(0).proprietor
-	member.advancement()
-	members.remove_child(member.order)
-	members.add_child(member.order)
+	if vigorous.get_child_count() > 0:
+		var member = vigorous.get_child(0).proprietor
+		member.advancement()
+		vigorous.remove_child(member.order)
+		tired.add_child(member.order)
+	else:
+		ladder.next_iteration()
+
+
+func rest() -> void:
+	while tired.get_child_count() > 0:
+		var icon = tired.get_child(0)
+		tired.remove_child(icon)
+		vigorous.add_child(icon)
+		icon.proprietor.rest()

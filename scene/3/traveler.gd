@@ -6,6 +6,7 @@ extends MarginContainer
 @onready var left = $HBox/Left
 @onready var right = $HBox/Right
 @onready var stairwell = $HBox/Stairwell
+@onready var difficulty = $HBox/Difficulty
 @onready var power = $HBox/Power
 
 var ladder = null
@@ -21,6 +22,7 @@ func set_attributes(input_: Dictionary) -> void:
 	route = input_.route
 	
 	init_icons()
+	roll_difficulty()
 	roll_power()
 	roll_step()
 	roll_direction()
@@ -53,20 +55,39 @@ func init_icons() -> void:
 	style.bg_color = Global.color.traveler[type]
 
 
+func roll_difficulty() -> void:
+	var base = 2
+	
+	if Global.dict.obstacle.initiative[type] == "aggressor":
+		base -= 1
+	
+	var modifiers = {}
+	modifiers[0] = 9
+	modifiers[1] = 4
+	modifiers[2] = 1
+	var modifier = Global.get_random_key(modifiers)
+	
+	var input = {}
+	input.type = "number"
+	input.subtype = base + modifier
+	difficulty.set_attributes(input)
+	difficulty.custom_minimum_size = Vector2(Global.vec.size.sixteen)
+	var style = difficulty.bg.get("theme_override_styles/panel")
+	style.bg_color = Global.color.difficulty
+	difficulty.bg.visible = true
+
+
 func roll_power() -> void:
 	var limits = {}
 	limits.min = round(ladder.dimensions.y * 3.0 / 4.0)
 	limits.max = round(ladder.dimensions.y * 5.0 / 4.0)
+	
 	var input = {}
 	input.type = "number"
 	Global.rng.randomize()
-	input.subtype  = Global.rng.randi_range(limits.min, limits.max)
-	
+	input.subtype = Global.rng.randi_range(limits.min, limits.max)
 	power.set_attributes(input)
 	power.custom_minimum_size = Vector2(Global.vec.size.sixteen)
-	power.bg.visible = true
-	var style = power.bg.get("theme_override_styles/panel")
-	style.bg_color = Global.color.traveler[type]
 
 
 func roll_step() -> void:
