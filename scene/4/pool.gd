@@ -4,7 +4,7 @@ extends MarginContainer
 @onready var dices = $Dices
 
 var encounter = null
-var side = null
+var role = null
 var result = null
 var rolls = []
 var fixed = false
@@ -12,7 +12,7 @@ var fixed = false
 
 func set_attributes(input_: Dictionary) -> void:
 	encounter  = input_.encounter
-	side  = input_.side
+	role = input_.role
 
 
 func init_dices(dices_: int, faces_: int) -> void:
@@ -56,9 +56,9 @@ func update_result() -> void:
 			result = dice.get_current_facet_value()
 	
 	var data = {}
-	data.side = side
+	data.role = role
 	data.value = result
-	print(data)
+	#print(data)
 	encounter.results.append(data)
 	encounter.check_results()
 

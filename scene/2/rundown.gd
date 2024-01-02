@@ -4,6 +4,7 @@ extends MarginContainer
 @onready var aspects = $Aspects
 
 var member = null
+var basis = {}
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -16,7 +17,7 @@ func init_aspects() -> void:
 	for branch in Global.arr.branch:
 		for root in Global.arr.root:
 				var input = {}
-				input.rundown = self
+				input.proprietor = self
 				input.root = root
 				input.branch = branch
 			
@@ -54,6 +55,11 @@ func spread_aspects() -> void:
 		
 		if aspect.stack.get_number() == Global.dict.aspect.title[aspect.appellation].max:
 			options.erase(aspect.appellation)
+	
+	for branch in Global.arr.branch:
+		for root in Global.arr.root:
+			var aspect = get_aspect_based_on_root_and_branch(root, branch)
+			basis[aspect.appellation] = int(aspect.stack.get_number())
 
 
 func get_aspect_based_on_root_and_branch(root_: String, branch_: String) -> MarginContainer:

@@ -4,16 +4,19 @@ extends MarginContainer
 @onready var index = $HBox/Index
 @onready var rundown = $HBox/Rundown
 @onready var indicators = $HBox/Indicators
+@onready var tattoo = $HBox/Tattoo
 
 var guild = null
 var squad = null
 var marker = null
 var order = null
 var step = null
-
+var part = null
+ 
 
 func set_attributes(input_: Dictionary) -> void:
 	guild = input_.guild
+	part = "member"
 	
 	init_basic_setting()
 
@@ -23,6 +26,7 @@ func init_basic_setting() -> void:
 	input.member = self
 	rundown.set_attributes(input)
 	indicators.set_attributes(input)
+	tattoo.set_attributes(input)
 	
 	input.type = "number"
 	input.subtype = Global.num.index.member

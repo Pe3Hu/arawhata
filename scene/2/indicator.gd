@@ -5,12 +5,12 @@ extends MarginContainer
 @onready var bar = $ProgressBar
 
 var indicators = null
-var type = null
+var root = null
 
 
 func set_attributes(input_: Dictionary) -> void:
 	indicators = input_.indicators
-	type = input_.type
+	root = input_.root
 	
 	set_value("maximum", input_.max)
 	reset()
@@ -27,17 +27,13 @@ func update_color() -> void:
 	
 	for key in keys:
 		var style_box = StyleBoxFlat.new()
-		style_box.bg_color = Global.color.indicator[type][key]
+		style_box.bg_color = Global.color.indicator[root][key]
 		var path = "theme_override_styles/" + key
 		bar.set(path, style_box)
 
 
 func change_value(limit_: String, value_: float) -> void:
 	value_ = round(value_)
-	var conditions = {}
-	conditions.type = "wasted"
-	conditions.subtype = type
-	conditions.value = value_
 	
 	match limit_:
 		"current":
@@ -47,7 +43,6 @@ func change_value(limit_: String, value_: float) -> void:
 				bar.value = bar.max_value
 			
 			if bar.value < bar.min_value:
-				conditions.value = bar.min_value - bar.value
 				bar.value = bar.min_value
 			
 			value.text = str(bar.value)

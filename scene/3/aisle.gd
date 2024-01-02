@@ -12,6 +12,7 @@ var steps = null
 var direction = null
 var measure = null
 var type = null
+var part = null
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -19,6 +20,7 @@ func set_attributes(input_: Dictionary) -> void:
 	steps = input_.steps
 	direction = input_.direction
 	measure = input_.measure
+	part = "obstacle"
 	
 	if measure == "stairwell":
 		type = input_.type
@@ -58,7 +60,8 @@ func init_basic_setting() -> void:
 	
 	match measure:
 		"step":
-			steps.front().continuation = steps.back()
+			steps.front().neighbors.next = steps.back()
+			steps.back().neighbors.prior = steps.front()
 		"stairwell":
 			roll_difficulty()
 
@@ -84,7 +87,7 @@ func set_doorway(step_: MarginContainer, type_: String) -> void:
 func roll_difficulty() -> void:
 	var base = 2
 	
-	if Global.dict.obstacle.initiative[type] == "aggressor":
+	if Global.dict.obstacle.role[type] == "aggressor":
 		base -= 1
 	
 	var modifiers = {}
@@ -94,3 +97,8 @@ func roll_difficulty() -> void:
 	var modifier = Global.get_random_key(modifiers)
 	var value = base + modifier
 	difficulty.set_number(value)
+
+
+func apply_impact(member_: MarginContainer) -> void:
+	var end = ladder.steps.get_child(exit.get_number())
+	end.add_member(member_)

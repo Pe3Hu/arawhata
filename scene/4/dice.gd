@@ -12,7 +12,7 @@ var tick = null
 var time = null
 var faces = null
 var counter = 0
-var window = 3
+var window = 1
 var skip = true#false true
 var anchor = null
 var temp = true
@@ -134,12 +134,12 @@ func flip_to_value(value_: int) -> void:
 			for _j in step:
 				pop_up()
 			
-			print(get_current_facet_value())
 			return
 
 
 func get_current_facet_value() -> int:
-	var facet = facets.get_child(2)
+	var a = facets.get_child_count()
+	var facet = facets.get_child(1)
 	return facet.value
 
 

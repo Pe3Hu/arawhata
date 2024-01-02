@@ -15,7 +15,7 @@ var border = null
 var status = null
 var obstacle = null
 var aisles = {}
-var continuation = null
+var neighbors = {}
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -28,6 +28,8 @@ func set_attributes(input_: Dictionary) -> void:
 
 
 func init_basic_setting() -> void:
+	neighbors.next = null
+	neighbors.prior = null
 	custom_minimum_size = Global.vec.size.step
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color.SLATE_GRAY
@@ -96,6 +98,7 @@ func add_member(member_: MarginContainer) -> void:
 			markers.add_child(member_.marker)
 			member_.marker.set_attributes(input)
 			member_.marker.custom_minimum_size = Vector2(Global.vec.size.sixteen)
+			member_.marker.bg.visible = true
 		
 		member_.step.markers.remove_child(member_.marker)
 		markers.add_child(member_.marker)
@@ -103,7 +106,7 @@ func add_member(member_: MarginContainer) -> void:
 		
 		obstacle_impact(member_)
 	else:
-		continuation.add_member(member_)
+		neighbors.next.add_member(member_)
 
 
 func obstacle_impact(member_: MarginContainer) -> void:
@@ -112,12 +115,12 @@ func obstacle_impact(member_: MarginContainer) -> void:
 		return
 	
 	if obstacle != null:
-		var initiatives = {}
+		var roles = {}
 		
-		for initiative in Global.arr.initiative:
-			if initiative == Global.dict.obstacle.initiative[obstacle.type]:
-				initiatives[initiative] = obstacle
+		for role in Global.arr.role:
+			if role == Global.dict.obstacle.role[obstacle.type]:
+				roles[role] = obstacle
 			else:
-				initiatives[initiative] = member_
+				roles[role] = member_
 		
-		ladder.active = false
+		ladder.encounter.set_roles(roles.aggressor, roles.defender)

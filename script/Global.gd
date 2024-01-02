@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 func init_arr() -> void:
-	arr.edge = [1, 2, 3, 4, 5, 6]
+	#arr.grade = [1, 2, 3, 4, 5]
 	arr.direction = ["up", "right", "down", "left"]
 	arr.traveler = ["sage", "guardian"]
 	arr.portal = ["trail", "trap"]
@@ -31,7 +31,7 @@ func init_arr() -> void:
 	arr.branch = ["volume", "replenishment", "endeavor", "tension", "resistance"]
 	arr.scheme = ["module", "connector"]
 	arr.side = ["left", "right"]
-	arr.initiative = ["aggressor", "defender"]
+	arr.role = ["aggressor", "defender"]
 
 
 func init_num() -> void:
@@ -53,6 +53,9 @@ func init_dict() -> void:
 	init_neighbor()
 	init_labyrinth()
 	init_aspect()
+	init_ornament()
+	init_vendor()
+	init_perk()
 
 
 func init_labyrinth() -> void:
@@ -86,13 +89,15 @@ func init_labyrinth() -> void:
 	dict.traveler.doorway = {}
 	dict.traveler.doorway["guardian"] = "up"
 	dict.traveler.doorway["sage"] = "down"
+	dict.traveler.doorway["trap"] = "up"
+	dict.traveler.doorway["trail"] = "down"
 	
-	dict.obstacle.initiative = {}
-	dict.obstacle.initiative["sage"] = "defender"
-	dict.obstacle.initiative["trail"] = "defender"
-	dict.obstacle.initiative["stash"] = "defender"
-	dict.obstacle.initiative["guardian"] = "aggressor"
-	dict.obstacle.initiative["trap"] = "aggressor"
+	dict.obstacle.role = {}
+	dict.obstacle.role["sage"] = "defender"
+	dict.obstacle.role["trail"] = "defender"
+	dict.obstacle.role["stash"] = "defender"
+	dict.obstacle.role["guardian"] = "aggressor"
+	dict.obstacle.role["trap"] = "aggressor"
 
 
 func init_neighbor() -> void:
@@ -180,6 +185,84 @@ func init_aspect() -> void:
 			num.aspect.min += dict.aspect.title[aspect[root]].min
 
 
+func init_ornament() -> void:
+	dict.ornament = {}
+	dict.ornament.order = {}
+	
+	var path = "res://asset/json/arawhata_ornament.json"
+	var array = load_data(path)
+	
+	for ornament in array:
+		var data = {}
+		
+		for key in ornament:
+			if key != "order":
+				data[key] = ornament[key]
+		
+		dict.ornament.order[int(ornament.order)] = data
+
+
+func init_vendor() -> void:
+	dict.vendor = {}
+	dict.vendor.index = {}
+	
+	var path = "res://asset/json/arawhata_vendor.json"
+	var array = load_data(path)
+	
+	for vendor in array:
+		var data = {}
+		
+		for key in vendor:
+			if key != "index":
+				data[key] = vendor[key]
+		
+		dict.vendor.index[vendor.index] = data
+	
+	dict.vendor.rarity = {}
+	dict.vendor.rarity["primary"] = 3
+	dict.vendor.rarity["secondary"] = 7
+
+
+func init_perk() -> void:
+	dict.perk = {}
+	dict.perk.branch = {}
+	
+	var path = "res://asset/json/arawhata_perk.json"
+	var array = load_data(path)
+	
+	for perk in array:
+		var data = {}
+		
+		for key in perk:
+			var words = key.split(" ")
+			
+			if words.has("grade"):
+				data[int(words[1])] = perk[key]
+		
+		if !dict.perk.branch.has(perk.branch):
+			dict.perk.branch[perk.branch] = {}
+		
+		dict.perk.branch[perk.branch][perk.rank] = data
+	
+	dict.grade = {}
+	dict.grade.rarity = {}
+	dict.grade.rarity[5] = 3
+	dict.grade.rarity[4] = 4
+	dict.grade.rarity[3] = 5
+	dict.grade.rarity[2] = 6
+	dict.grade.rarity[1] = 7
+	
+	dict.rank = {}
+	dict.rank.rarity = {}
+	dict.rank.rarity["S"] = 1
+	dict.rank.rarity["A"] = 3
+	dict.rank.rarity["B"] = 7
+	dict.rank.rarity["C"] = 13
+	dict.rank.rarity["D"] = 21
+	dict.rank.rarity["E"] = 31
+	dict.rank.rarity["F"] = 43
+
+
 func init_node() -> void:
 	node.game = get_node("/root/Game")
 
@@ -198,6 +281,12 @@ func init_scene() -> void:
 	scene.aisle = load("res://scene/3/aisle.tscn")
 	scene.stash = load("res://scene/3/stash.tscn")
 	scene.traveler = load("res://scene/3/traveler.tscn")
+	
+	scene.dice = load("res://scene/4/dice.tscn")
+	scene.facet = load("res://scene/4/facet.tscn")
+	
+	scene.ornament = load("res://scene/5/ornament.tscn")
+	scene.perk = load("res://scene/5/perk.tscn")
 
 
 func init_vec():
@@ -214,6 +303,8 @@ func init_vec():
 	vec.size.step = Vector2(80, 80)
 	vec.size.scheme = Vector2(900, 700)
 	vec.size.encounter = Vector2(128, 200)
+	vec.size.facet = Vector2(64, 64) * 0.5
+	vec.size.tattoo = Vector2(16, 16) * 3
 	#vec.size.part = Vector2(16, 16)
 	
 	init_window_size()
@@ -258,6 +349,12 @@ func init_color():
 	color.indicator.will.background = Color.from_hsv(60 / h, 0.5, 0.9)
 	
 	color.difficulty = Color.from_hsv(150 / h, 0.6, 0.7)
+	
+	color.root = {}
+	color.root.strength = Color.from_hsv(0 / h, 0.8, 0.6)
+	color.root.dexterity = Color.from_hsv(120 / h, 0.8, 0.6)
+	color.root.intellect = Color.from_hsv(210 / h, 0.8, 0.6)
+	color.root.will = Color.from_hsv(60 / h, 0.8, 0.6)
 
 
 func save(path_: String, data_: String):
@@ -297,3 +394,15 @@ func get_random_key(dict_: Dictionary):
 	
 	print("!bug! index_r error in get_random_key func")
 	return null
+
+
+func roll_perk_description(ranks_: Array) -> Dictionary:
+	var description = {}
+	var ranks = {}
+	
+	for rank in ranks_:
+		ranks[rank] = dict.rank.rarity[rank]
+	
+	description.rank = get_random_key(ranks)
+	description.grade = get_random_key(dict.grade.rarity)
+	return description

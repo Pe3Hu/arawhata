@@ -208,7 +208,7 @@ func init_travelers() -> void:
 		var route = [step]
 		
 		while step.status != "finish":
-			step = step.continuation
+			step = step.neighbors.next
 			
 			if !step.get(side).visible:
 				route.append(step)
@@ -336,10 +336,17 @@ func commence() -> void:
 
 func get_end_of_advancement(start_: MarginContainer, distance_: int) -> MarginContainer:
 	var end = start_
+	var key = null
 	
-	for _i in distance_:
-		if end.continuation != null:
-			end = end.continuation
+	match sign(distance_):
+		1:
+			key = "next"
+		-1:
+			key = "prior"
+	
+	for _i in abs(distance_):
+		if end.neighbors[key] != null:
+			end = end.neighbors[key]
 		else:
 			break
 	

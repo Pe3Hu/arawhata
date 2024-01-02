@@ -4,14 +4,16 @@ extends MarginContainer
 @onready var title = $Title
 @onready var stack = $Stack
 
-var rundown = null
+var proprietor = null
 var root = null
 var branch = null
 var appellation = null
+var grade = null
+var rank = null
 
 
 func set_attributes(input_: Dictionary) -> void:
-	rundown = input_.rundown
+	proprietor = input_.proprietor
 	root = input_.root
 	branch = input_.branch
 	appellation = Global.dict.root.branch[root][branch]
@@ -25,6 +27,12 @@ func set_attributes(input_: Dictionary) -> void:
 	input = {}
 	input.type = "number"
 	input.subtype = 0
+	
+	if input_.has("value"):
+		input.subtype = input_.value
+		grade = input_.grade
+		rank = input_.rank
+	
 	stack.set_attributes(input)
 	stack.custom_minimum_size = Vector2(Global.vec.size.sixteen)
 

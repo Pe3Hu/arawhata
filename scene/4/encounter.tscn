@@ -28,53 +28,55 @@ visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 
-[node name="Sides" type="HBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 2
 alignment = 1
 
-[node name="Left" type="VBoxContainer" parent="Sides"]
+[node name="Aggressor" type="VBoxContainer" parent="HBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="HBox" type="HBoxContainer" parent="Sides/Left"]
+[node name="HBox" type="HBoxContainer" parent="HBox/Aggressor"]
+layout_mode = 2
+alignment = 1
+
+[node name="Marker" parent="HBox/Aggressor/HBox" instance=ExtResource("2_kuscj")]
 layout_mode = 2
 
-[node name="Marker" parent="Sides/Left/HBox" instance=ExtResource("2_kuscj")]
+[node name="Max" parent="HBox/Aggressor/HBox" instance=ExtResource("2_kuscj")]
 layout_mode = 2
 
-[node name="Max" parent="Sides/Left/HBox" instance=ExtResource("2_kuscj")]
-layout_mode = 2
-
-[node name="Winner" parent="Sides/Left" instance=ExtResource("2_kuscj")]
+[node name="Winner" parent="HBox/Aggressor" instance=ExtResource("2_kuscj")]
 visible = false
 layout_mode = 2
 
-[node name="Pool" parent="Sides/Left" instance=ExtResource("3_tuhhi")]
+[node name="Pool" parent="HBox/Aggressor" instance=ExtResource("3_tuhhi")]
 layout_mode = 2
 
-[node name="Middle" type="VBoxContainer" parent="Sides"]
-layout_mode = 2
-alignment = 1
-
-[node name="Initiation" parent="Sides/Middle" instance=ExtResource("2_kuscj")]
-layout_mode = 2
-
-[node name="Right" type="VBoxContainer" parent="Sides"]
+[node name="Middle" type="VBoxContainer" parent="HBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="HBox" type="HBoxContainer" parent="Sides/Right"]
+[node name="Initiation" parent="HBox/Middle" instance=ExtResource("2_kuscj")]
 layout_mode = 2
 
-[node name="Marker" parent="Sides/Right/HBox" instance=ExtResource("2_kuscj")]
+[node name="Defender" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBox" type="HBoxContainer" parent="HBox/Defender"]
+layout_mode = 2
+alignment = 1
+
+[node name="Marker" parent="HBox/Defender/HBox" instance=ExtResource("2_kuscj")]
 layout_mode = 2
 
-[node name="Max" parent="Sides/Right/HBox" instance=ExtResource("2_kuscj")]
+[node name="Max" parent="HBox/Defender/HBox" instance=ExtResource("2_kuscj")]
 layout_mode = 2
 
-[node name="Winner" parent="Sides/Right" instance=ExtResource("2_kuscj")]
+[node name="Winner" parent="HBox/Defender" instance=ExtResource("2_kuscj")]
 visible = false
 layout_mode = 2
 
-[node name="Pool" parent="Sides/Right" instance=ExtResource("3_tuhhi")]
+[node name="Pool" parent="HBox/Defender" instance=ExtResource("3_tuhhi")]
 layout_mode = 2

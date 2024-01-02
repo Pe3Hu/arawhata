@@ -8,6 +8,7 @@ extends MarginContainer
 
 var ladder = null
 var type = null
+var part = null
 
 
 func set_attributes(input_: Dictionary) -> void:
@@ -17,6 +18,7 @@ func set_attributes(input_: Dictionary) -> void:
 
 
 func init_basic_setting() -> void:
+	part = "obstacle"
 	type = "stash"
 	
 	var input = {}
@@ -53,3 +55,7 @@ func roll_difficulty() -> void:
 	var modifier = Global.get_random_key(modifiers)
 	var value = base + modifier
 	difficulty.set_number(value)
+
+
+func apply_impact(member_: MarginContainer) -> void:
+	pass

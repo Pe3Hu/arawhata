@@ -1,0 +1,32 @@
+[
+ {
+  "index": 0,
+  "primary": "volume",
+  "secondary": "endeavor"
+ },
+ {
+  "index": 1,
+  "primary": "volume",
+  "secondary": "tension"
+ },
+ {
+  "index": 2,
+  "primary": "volume",
+  "secondary": "resistance"
+ },
+ {
+  "index": 3,
+  "primary": "replenishment",
+  "secondary": "endeavor"
+ },
+ {
+  "index": 4,
+  "primary": "replenishment",
+  "secondary": "tension"
+ },
+ {
+  "index": 5,
+  "primary": "replenishment",
+  "secondary": "resistance"
+ }
+]

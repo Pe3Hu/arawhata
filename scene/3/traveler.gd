@@ -5,7 +5,7 @@ extends MarginContainer
 @onready var steps = $HBox/Steps
 @onready var left = $HBox/Left
 @onready var right = $HBox/Right
-@onready var stairwell = $HBox/Stairwell
+@onready var index = $HBox/Index
 @onready var difficulty = $HBox/Difficulty
 @onready var power = $HBox/Power
 
@@ -14,12 +14,14 @@ var type = null
 var route = null
 var step = null
 var direction = null
+var part = null
 
 
 func set_attributes(input_: Dictionary) -> void:
 	ladder = input_.ladder
 	type = input_.type
 	route = input_.route
+	part = "obstacle"
 	
 	init_icons()
 	roll_difficulty()
@@ -48,17 +50,17 @@ func init_icons() -> void:
 	input.type = "number"
 	input.subtype = route.front().grid.y
 	
-	stairwell.set_attributes(input)
-	stairwell.custom_minimum_size = Vector2(Global.vec.size.sixteen)
-	stairwell.bg.visible = true
-	var style = stairwell.bg.get("theme_override_styles/panel")
+	index.set_attributes(input)
+	index.custom_minimum_size = Vector2(Global.vec.size.sixteen)
+	index.bg.visible = true
+	var style = index.bg.get("theme_override_styles/panel")
 	style.bg_color = Global.color.traveler[type]
 
 
 func roll_difficulty() -> void:
 	var base = 2
 	
-	if Global.dict.obstacle.initiative[type] == "aggressor":
+	if Global.dict.obstacle.role[type] == "aggressor":
 		base -= 1
 	
 	var modifiers = {}
@@ -179,3 +181,14 @@ func step_out() -> void:
 	var side = Global.dict.traveler.doorway[type]
 	var doorway = step.get(side)
 	doorway.visible = false
+
+
+func apply_impact(member_: MarginContainer) -> void:
+	var multiplier = 1
+	
+	if Global.dict.traveler.doorway[type] == "up":
+		multiplier = -1
+	
+	var distance = power.get_number() * multiplier
+	var end = ladder.get_end_of_advancement(member_.step, distance)
+	end.add_member(member_)

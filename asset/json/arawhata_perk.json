@@ -1,0 +1,317 @@
+[
+ {
+  "branch": "replenishment",
+  "rank": "E",
+  "grade 1": 1,
+  "grade 2": 2,
+  "grade 3": 3,
+  "grade 4": 4,
+  "grade 5": 5
+ },
+ {
+  "branch": "replenishment",
+  "rank": "F",
+  "grade 1": 1,
+  "grade 2": 3,
+  "grade 3": 4,
+  "grade 4": 5,
+  "grade 5": 7
+ },
+ {
+  "branch": "replenishment",
+  "rank": "D",
+  "grade 1": 2,
+  "grade 2": 4,
+  "grade 3": 6,
+  "grade 4": 8,
+  "grade 5": 10
+ },
+ {
+  "branch": "replenishment",
+  "rank": "C",
+  "grade 1": 2,
+  "grade 2": 6,
+  "grade 3": 7,
+  "grade 4": 8,
+  "grade 5": 12
+ },
+ {
+  "branch": "replenishment",
+  "rank": "B",
+  "grade 1": 5,
+  "grade 2": 7,
+  "grade 3": 9,
+  "grade 4": 11,
+  "grade 5": 13
+ },
+ {
+  "branch": "replenishment",
+  "rank": "A",
+  "grade 1": 3,
+  "grade 2": 9,
+  "grade 3": 10,
+  "grade 4": 11,
+  "grade 5": 17
+ },
+ {
+  "branch": "replenishment",
+  "rank": "S",
+  "grade 1": 11,
+  "grade 2": 14,
+  "grade 3": 17,
+  "grade 4": 20,
+  "grade 5": 23
+ },
+ {
+  "branch": "resistance",
+  "rank": "E",
+  "grade 1": 2,
+  "grade 2": 3,
+  "grade 3": 4,
+  "grade 4": 5,
+  "grade 5": 6
+ },
+ {
+  "branch": "resistance",
+  "rank": "F",
+  "grade 1": 2,
+  "grade 2": 5,
+  "grade 3": 6,
+  "grade 4": 7,
+  "grade 5": 10
+ },
+ {
+  "branch": "resistance",
+  "rank": "D",
+  "grade 1": 3,
+  "grade 2": 6,
+  "grade 3": 9,
+  "grade 4": 12,
+  "grade 5": 15
+ },
+ {
+  "branch": "resistance",
+  "rank": "C",
+  "grade 1": 4,
+  "grade 2": 10,
+  "grade 3": 11,
+  "grade 4": 12,
+  "grade 5": 18
+ },
+ {
+  "branch": "resistance",
+  "rank": "B",
+  "grade 1": 6,
+  "grade 2": 12,
+  "grade 3": 14,
+  "grade 4": 16,
+  "grade 5": 22
+ },
+ {
+  "branch": "resistance",
+  "rank": "A",
+  "grade 1": 7,
+  "grade 2": 15,
+  "grade 3": 16,
+  "grade 4": 17,
+  "grade 5": 25
+ },
+ {
+  "branch": "resistance",
+  "rank": "S",
+  "grade 1": 20,
+  "grade 2": 24,
+  "grade 3": 28,
+  "grade 4": 32,
+  "grade 5": 36
+ },
+ {
+  "branch": "endeavor",
+  "rank": "E",
+  "grade 1": 3,
+  "grade 2": 4,
+  "grade 3": 5,
+  "grade 4": 6,
+  "grade 5": 7
+ },
+ {
+  "branch": "endeavor",
+  "rank": "F",
+  "grade 1": 3,
+  "grade 2": 4,
+  "grade 3": 5,
+  "grade 4": 6,
+  "grade 5": 7
+ },
+ {
+  "branch": "endeavor",
+  "rank": "D",
+  "grade 1": 4,
+  "grade 2": 4,
+  "grade 3": 4,
+  "grade 4": 4,
+  "grade 5": 4
+ },
+ {
+  "branch": "endeavor",
+  "rank": "C",
+  "grade 1": 5,
+  "grade 2": 9,
+  "grade 3": 10,
+  "grade 4": 11,
+  "grade 5": 15
+ },
+ {
+  "branch": "endeavor",
+  "rank": "B",
+  "grade 1": 6,
+  "grade 2": 12,
+  "grade 3": 19,
+  "grade 4": 26,
+  "grade 5": 32
+ },
+ {
+  "branch": "endeavor",
+  "rank": "A",
+  "grade 1": 7,
+  "grade 2": 14,
+  "grade 3": 15,
+  "grade 4": 16,
+  "grade 5": 23
+ },
+ {
+  "branch": "endeavor",
+  "rank": "S",
+  "grade 1": -4,
+  "grade 2": -2,
+  "grade 3": 0,
+  "grade 4": 2,
+  "grade 5": 4
+ },
+ {
+  "branch": "tension",
+  "rank": "E",
+  "grade 1": 4,
+  "grade 2": 5,
+  "grade 3": 6,
+  "grade 4": 7,
+  "grade 5": 8
+ },
+ {
+  "branch": "tension",
+  "rank": "F",
+  "grade 1": 4,
+  "grade 2": 9,
+  "grade 3": 10,
+  "grade 4": 11,
+  "grade 5": 16
+ },
+ {
+  "branch": "tension",
+  "rank": "D",
+  "grade 1": 5,
+  "grade 2": 5,
+  "grade 3": 5,
+  "grade 4": 5,
+  "grade 5": 5
+ },
+ {
+  "branch": "tension",
+  "rank": "C",
+  "grade 1": 6,
+  "grade 2": 18,
+  "grade 3": 19,
+  "grade 4": 20,
+  "grade 5": 32
+ },
+ {
+  "branch": "tension",
+  "rank": "B",
+  "grade 1": 7,
+  "grade 2": 15,
+  "grade 3": 24,
+  "grade 4": 33,
+  "grade 5": 41
+ },
+ {
+  "branch": "tension",
+  "rank": "A",
+  "grade 1": 8,
+  "grade 2": 27,
+  "grade 3": 28,
+  "grade 4": 29,
+  "grade 5": 48
+ },
+ {
+  "branch": "tension",
+  "rank": "S",
+  "grade 1": -4,
+  "grade 2": -2,
+  "grade 3": 0,
+  "grade 4": 2,
+  "grade 5": 4
+ },
+ {
+  "branch": "volume",
+  "rank": "E",
+  "grade 1": 5,
+  "grade 2": 6,
+  "grade 3": 7,
+  "grade 4": 8,
+  "grade 5": 9
+ },
+ {
+  "branch": "volume",
+  "rank": "F",
+  "grade 1": 5,
+  "grade 2": 11,
+  "grade 3": 12,
+  "grade 4": 13,
+  "grade 5": 19
+ },
+ {
+  "branch": "volume",
+  "rank": "D",
+  "grade 1": 6,
+  "grade 2": 6,
+  "grade 3": 6,
+  "grade 4": 6,
+  "grade 5": 6
+ },
+ {
+  "branch": "volume",
+  "rank": "C",
+  "grade 1": 7,
+  "grade 2": 15,
+  "grade 3": 16,
+  "grade 4": 17,
+  "grade 5": 25
+ },
+ {
+  "branch": "volume",
+  "rank": "B",
+  "grade 1": 8,
+  "grade 2": 18,
+  "grade 3": 29,
+  "grade 4": 40,
+  "grade 5": 50
+ },
+ {
+  "branch": "volume",
+  "rank": "A",
+  "grade 1": 9,
+  "grade 2": 24,
+  "grade 3": 25,
+  "grade 4": 26,
+  "grade 5": 41
+ },
+ {
+  "branch": "volume",
+  "rank": "S",
+  "grade 1": -4,
+  "grade 2": -2,
+  "grade 3": 0,
+  "grade 4": 2,
+  "grade 5": 4
+ }
+]
