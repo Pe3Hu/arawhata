@@ -5,6 +5,7 @@ extends MarginContainer
 @onready var rundown = $HBox/Rundown
 @onready var indicators = $HBox/Indicators
 @onready var tattoo = $HBox/Tattoo
+@onready var flesh = $HBox/Flesh
 
 var guild = null
 var squad = null
@@ -27,6 +28,7 @@ func init_basic_setting() -> void:
 	rundown.set_attributes(input)
 	indicators.set_attributes(input)
 	tattoo.set_attributes(input)
+	flesh.set_attributes(input)
 	
 	input.type = "number"
 	input.subtype = Global.num.index.member

@@ -32,6 +32,8 @@ func init_arr() -> void:
 	arr.scheme = ["module", "connector"]
 	arr.side = ["left", "right"]
 	arr.role = ["aggressor", "defender"]
+	arr.essence = ["brain", "blood", "nerve", "muscle", "bone"]
+	arr.priority = ["primary", "secondary"]
 
 
 func init_num() -> void:
@@ -56,6 +58,9 @@ func init_dict() -> void:
 	init_ornament()
 	init_vendor()
 	init_perk()
+	init_passive()
+	init_active()
+	init_totem()
 
 
 func init_labyrinth() -> void:
@@ -154,6 +159,9 @@ func init_aspect() -> void:
 	dict.branch.root = {}
 	dict.root = {}
 	dict.root.branch = {}
+	dict.branch.essence = {}
+	dict.essence = {}
+	dict.essence.branch = {}
 	
 	var path = "res://asset/json/arawhata_aspect.json"
 	var array = load_data(path)
@@ -165,9 +173,10 @@ func init_aspect() -> void:
 			if key != "title" and !arr.root.has(key):
 				data[key] = aspect[key]
 		
-		
 		if !dict.branch.root.has(aspect.title):
 			dict.branch.root[aspect.title] = {}
+			dict.branch.essence[aspect.title] = aspect.essence
+			dict.essence.branch[aspect.essence] = aspect.title
 		
 		for root in arr.root:
 			if !dict.root.branch.has(root):
@@ -263,6 +272,67 @@ func init_perk() -> void:
 	dict.rank.rarity["F"] = 43
 
 
+func init_active() -> void:
+	dict.active = {}
+	dict.active.title = {}
+	
+	var path = "res://asset/json/arawhata_active.json"
+	var array = load_data(path)
+	
+	for active in array:
+		var data = {}
+		
+		for key in active:
+			if key != "title":
+				data[key] = active[key]
+		
+		dict.active.title[active.title] = data
+
+
+func init_passive() -> void:
+	dict.passive = {}
+	dict.passive.index = {}
+	
+	var path = "res://asset/json/arawhata_passive.json"
+	var array = load_data(path)
+	
+	for passive in array:
+		var data = {}
+		
+		for key in passive:
+			if key != "index":
+				data[key] = passive[key]
+		
+		dict.passive.index[passive.index] = data
+
+
+func init_totem() -> void:
+	dict.totem = {}
+	dict.totem.essence = {}
+	dict.essence.totem = {}
+	arr.totem = []
+	
+	var path = "res://asset/json/arawhata_totem.json"
+	var array = load_data(path)
+	
+	for totem in array:
+		var data = {}
+		
+		for key in totem:
+			if key != "title":
+				var words = key.split(" ")
+				data[words[1]] = totem[key]
+				
+				if !dict.essence.totem.has(totem[key]):
+					dict.essence.totem[totem[key]] = []
+				
+				dict.essence.totem[totem[key]].append(totem.title)
+			else:
+				arr.totem.append(totem[key])
+		
+		dict.totem.essence[totem.title] = data
+
+
 func init_node() -> void:
 	node.game = get_node("/root/Game")
 
@@ -286,7 +356,7 @@ func init_scene() -> void:
 	scene.facet = load("res://scene/4/facet.tscn")
 	
 	scene.ornament = load("res://scene/5/ornament.tscn")
-	scene.perk = load("res://scene/5/perk.tscn")
+	scene.essence = load("res://scene/5/essence.tscn")
 
 
 func init_vec():
@@ -305,6 +375,7 @@ func init_vec():
 	vec.size.encounter = Vector2(128, 200)
 	vec.size.facet = Vector2(64, 64) * 0.5
 	vec.size.tattoo = Vector2(16, 16) * 3
+	vec.size.essence = Vector2(16, 16) * 2
 	#vec.size.part = Vector2(16, 16)
 	
 	init_window_size()

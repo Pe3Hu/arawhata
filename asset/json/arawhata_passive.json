@@ -1,0 +1,442 @@
+[
+ {
+  "index": 0,
+  "type": "overtook",
+  "subtype": "itself",
+  "measure": "ally",
+  "totem": "hare",
+  "weigth": 5,
+  "phase": "declaration",
+  "action": "relocation"
+ },
+ {
+  "index": 1,
+  "type": "overtook",
+  "subtype": "itself",
+  "measure": "adversary",
+  "totem": "hare",
+  "weigth": 3,
+  "phase": "declaration",
+  "action": "relocation"
+ },
+ {
+  "index": 2,
+  "type": "overcame",
+  "subtype": "itself",
+  "measure": "step",
+  "totem": "hare",
+  "weigth": 1,
+  "phase": "response",
+  "action": "relocation"
+ },
+ {
+  "index": 3,
+  "type": "overcame",
+  "subtype": "itself",
+  "measure": "stairwell",
+  "totem": "hare",
+  "weigth": 1,
+  "phase": "response",
+  "action": "relocation"
+ },
+ {
+  "index": 4,
+  "type": "overcame",
+  "subtype": "other",
+  "measure": "ramp",
+  "totem": "hare",
+  "weigth": 3,
+  "phase": "declaration",
+  "action": "relocation"
+ },
+ {
+  "index": 5,
+  "type": "overtook",
+  "subtype": "itself",
+  "measure": "ramp",
+  "totem": "turtle ",
+  "weigth": 3,
+  "phase": "response",
+  "action": "relocation"
+ },
+ {
+  "index": 6,
+  "type": "overtook",
+  "subtype": "other",
+  "measure": "ally",
+  "totem": "turtle ",
+  "weigth": 2,
+  "phase": "response",
+  "action": "relocation"
+ },
+ {
+  "index": 7,
+  "type": "overtook",
+  "subtype": "other",
+  "measure": "adversary",
+  "totem": "turtle ",
+  "weigth": 2,
+  "phase": "response",
+  "action": "relocation"
+ },
+ {
+  "index": 8,
+  "type": "hack",
+  "subtype": "success",
+  "measure": "trail",
+  "totem": "snake",
+  "weigth": 7,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 9,
+  "type": "hack",
+  "subtype": "failure",
+  "measure": "trail",
+  "totem": "snake",
+  "weigth": 5,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 10,
+  "type": "negotiation",
+  "subtype": "success",
+  "measure": "sage",
+  "totem": "snake",
+  "weigth": 7,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 11,
+  "type": "negotiation",
+  "subtype": "failure",
+  "measure": "sage",
+  "totem": "snake",
+  "weigth": 5,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 12,
+  "type": "hack",
+  "subtype": "success",
+  "measure": "trap",
+  "totem": "bear",
+  "weigth": 7,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 13,
+  "type": "hack",
+  "subtype": "failure",
+  "measure": "trap",
+  "totem": "bear",
+  "weigth": 5,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 14,
+  "type": "negotiation",
+  "subtype": "success",
+  "measure": "guard",
+  "totem": "bear",
+  "weigth": 7,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 15,
+  "type": "negotiation",
+  "subtype": "failure",
+  "measure": "guard",
+  "totem": "bear",
+  "weigth": 5,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 16,
+  "type": "hunt",
+  "subtype": "success",
+  "measure": "cache",
+  "totem": "wolf",
+  "weigth": 6,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 17,
+  "type": "hunt",
+  "subtype": "failure",
+  "measure": "stash",
+  "totem": "wolf",
+  "weigth": 4,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 18,
+  "type": "balance",
+  "subtype": "success",
+  "measure": "energy",
+  "totem": "elephant",
+  "weigth": 1,
+  "phase": "energize",
+  "action": "rest"
+ },
+ {
+  "index": 19,
+  "type": "balance",
+  "subtype": "failure",
+  "measure": "energy",
+  "totem": "elephant",
+  "weigth": 1,
+  "phase": "any",
+  "action": "any"
+ },
+ {
+  "index": 20,
+  "type": "impact",
+  "subtype": "success",
+  "measure": "ally",
+  "totem": "dove",
+  "weigth": 4,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 21,
+  "type": "impact",
+  "subtype": "failure",
+  "measure": "ally",
+  "totem": "dove",
+  "weigth": 4,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 22,
+  "type": "impact",
+  "subtype": "success",
+  "measure": "adversary",
+  "totem": "raven",
+  "weigth": 8,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 23,
+  "type": "impact",
+  "subtype": "failure",
+  "measure": "adversary",
+  "totem": "raven",
+  "weigth": 6,
+  "phase": "declaration",
+  "action": "challenge "
+ },
+ {
+  "index": 24,
+  "type": "critical",
+  "subtype": "success",
+  "measure": "challenge ",
+  "totem": "dove",
+  "weigth": 5,
+  "phase": "any",
+  "action": "challenge "
+ },
+ {
+  "index": 25,
+  "type": "critical",
+  "subtype": "failure",
+  "measure": "challenge ",
+  "totem": "raven",
+  "weigth": 5,
+  "phase": "any",
+  "action": "challenge "
+ },
+ {
+  "index": 26,
+  "type": "any",
+  "subtype": "even",
+  "measure": "challenge ",
+  "totem": "elephant",
+  "weigth": 1,
+  "phase": "any",
+  "action": "challenge "
+ },
+ {
+  "index": 27,
+  "type": "any",
+  "subtype": "odd",
+  "measure": "challenge ",
+  "totem": "wolf",
+  "weigth": 1,
+  "phase": "any",
+  "action": "challenge "
+ },
+ {
+  "index": 28,
+  "type": "position",
+  "subtype": "first",
+  "measure": "half",
+  "totem": "hare",
+  "weigth": 1,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 29,
+  "type": "position",
+  "subtype": "first",
+  "measure": "squad",
+  "totem": "hare",
+  "weigth": 2,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 30,
+  "type": "position",
+  "subtype": "first",
+  "measure": "score",
+  "totem": "hare",
+  "weigth": 9,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 31,
+  "type": "position",
+  "subtype": "last",
+  "measure": "half",
+  "totem": "turtle ",
+  "weigth": 1,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 32,
+  "type": "position",
+  "subtype": "last",
+  "measure": "squad",
+  "totem": "turtle ",
+  "weigth": 2,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 33,
+  "type": "position",
+  "subtype": "last",
+  "measure": "score",
+  "totem": "turtle ",
+  "weigth": 9,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 34,
+  "type": "state",
+  "subtype": "success",
+  "measure": "energy",
+  "totem": "elephant",
+  "weigth": 3,
+  "phase": "energize",
+  "action": "rest"
+ },
+ {
+  "index": 35,
+  "type": "state",
+  "subtype": "failure",
+  "measure": "energy",
+  "totem": "elephant",
+  "weigth": 3,
+  "phase": "energize",
+  "action": "rest"
+ },
+ {
+  "index": 36,
+  "type": "position",
+  "subtype": "on",
+  "measure": "trail",
+  "totem": "snake",
+  "weigth": 6,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 37,
+  "type": "position",
+  "subtype": "on",
+  "measure": "trap",
+  "totem": "bear",
+  "weigth": 6,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 38,
+  "type": "position",
+  "subtype": "on",
+  "measure": "stash",
+  "totem": "wolf",
+  "weigth": 6,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 39,
+  "type": "position",
+  "subtype": "middle",
+  "measure": "squad",
+  "totem": "wolf",
+  "weigth": 2,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 40,
+  "type": "position",
+  "subtype": "next to",
+  "measure": "ally",
+  "totem": "dove",
+  "weigth": 5,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 41,
+  "type": "position",
+  "subtype": "together with",
+  "measure": "ally",
+  "totem": "dove",
+  "weigth": 8,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 42,
+  "type": "position",
+  "subtype": "next to",
+  "measure": "adversary",
+  "totem": "raven",
+  "weigth": 4,
+  "phase": "touchdown",
+  "action": "relocation"
+ },
+ {
+  "index": 43,
+  "type": "position",
+  "subtype": "together with",
+  "measure": "adversary",
+  "totem": "raven",
+  "weigth": 7,
+  "phase": "touchdown",
+  "action": "relocation"
+ }
+]

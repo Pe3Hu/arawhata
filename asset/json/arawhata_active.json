@@ -1,0 +1,182 @@
+[
+ {
+  "title": "messenger",
+  "skill": "accelerate",
+  "verification": "resistance",
+  "object": "itself",
+  "value": 2,
+  "effect": "vigor",
+  "totem": "hare",
+  "order": 0,
+  "priority": 1
+ },
+ {
+  "title": "harpoon",
+  "skill": "relocate",
+  "verification": "tension",
+  "displacement": "to oneself",
+  "object": "ally",
+  "measure": "step",
+  "totem": "hare",
+  "order": 1
+ },
+ {
+  "title": "deceiver",
+  "skill": "exchange",
+  "verification": "tension",
+  "displacement": "forward",
+  "object": "adversary",
+  "measure": "step",
+  "totem": "turtle ",
+  "order": 0,
+  "priority": 1
+ },
+ {
+  "title": "traveler",
+  "skill": "relocate",
+  "verification": "resistance",
+  "displacement": "to an ally",
+  "object": "myself",
+  "totem": "turtle ",
+  "order": 1
+ },
+ {
+  "title": "jester",
+  "skill": "teleport",
+  "verification": "resistance",
+  "displacement": "casually",
+  "object": "oneself",
+  "measure": "stairwell",
+  "totem": "elephant",
+  "order": 0,
+  "priority": 1
+ },
+ {
+  "title": "trail master",
+  "skill": "preparation",
+  "verification": "tension",
+  "object": "path",
+  "measure": "obstacle",
+  "effect": "advantage",
+  "totem": "snake",
+  "order": 0,
+  "priority": 1
+ },
+ {
+  "title": "apprentice",
+  "skill": "preparation",
+  "verification": "resistance",
+  "object": "wise man",
+  "measure": "obstacle",
+  "effect": "advantage",
+  "totem": "snake",
+  "order": 1
+ },
+ {
+  "title": "trap master",
+  "skill": "preparation",
+  "verification": "resistance",
+  "object": "trap",
+  "measure": "obstacle",
+  "effect": "advantage",
+  "totem": "bear",
+  "order": 0
+ },
+ {
+  "title": "duelist",
+  "skill": "preparation",
+  "verification": "tension",
+  "object": "guardian",
+  "measure": "obstacle",
+  "effect": "advantage",
+  "totem": "bear",
+  "order": 1,
+  "priority": 1
+ },
+ {
+  "title": "hunter",
+  "skill": "preparation",
+  "verification": "tension",
+  "object": "hunt",
+  "measure": "obstacle",
+  "effect": "advantage",
+  "totem": "wolf",
+  "order": 0
+ },
+ {
+  "title": "ringleader",
+  "skill": "relocate",
+  "verification": "tension",
+  "displacement": "to oneself",
+  "object": "allies",
+  "totem": "wolf",
+  "order": 1
+ },
+ {
+  "title": "chaser",
+  "skill": "accelerate",
+  "verification": "tension",
+  "object": "ally",
+  "value": 2,
+  "effect": "vigor",
+  "totem": "wolf",
+  "order": 2,
+  "priority": 1
+ },
+ {
+  "title": "pusher",
+  "skill": "relocate",
+  "verification": "tension",
+  "displacement": "forward",
+  "object": "ally",
+  "value": 3,
+  "measure": "step",
+  "totem": "dove",
+  "order": 0,
+  "priority": 1
+ },
+ {
+  "title": "wind lord",
+  "skill": "relocate",
+  "verification": "tension",
+  "displacement": "forward",
+  "object": "ally",
+  "value": 1,
+  "measure": "stairwell",
+  "totem": "dove",
+  "order": 1
+ },
+ {
+  "title": "barrier",
+  "skill": "relocate",
+  "verification": "tension",
+  "displacement": "backward",
+  "object": "adversary",
+  "value": 3,
+  "measure": "step",
+  "totem": "raven",
+  "order": 0,
+  "priority": 1
+ },
+ {
+  "title": "land lord",
+  "skill": "relocate",
+  "verification": "tension",
+  "displacement": "backward",
+  "object": "adversary",
+  "value": 1,
+  "measure": "stairwell",
+  "totem": "raven",
+  "order": 1
+ },
+ {
+  "title": "saboteur",
+  "skill": "slow down",
+  "verification": "tension",
+  "object": "adversary",
+  "value": 2,
+  "effect": "fatigue",
+  "totem": "raven",
+  "order": 2
+ }
+]

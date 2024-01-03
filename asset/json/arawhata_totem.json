@@ -1,0 +1,42 @@
+[
+ {
+  "title": "hare",
+  "essence primary": "nerve",
+  "essence secondary": "bone"
+ },
+ {
+  "title": "turtle ",
+  "essence primary": "bone",
+  "essence secondary": "nerve"
+ },
+ {
+  "title": "elephant",
+  "essence primary": "brain",
+  "essence secondary": "blood"
+ },
+ {
+  "title": "snake",
+  "essence primary": "muscle",
+  "essence secondary": "bone"
+ },
+ {
+  "title": "bear",
+  "essence primary": "bone",
+  "essence secondary": "muscle"
+ },
+ {
+  "title": "wolf",
+  "essence primary": "nerve",
+  "essence secondary": "brain"
+ },
+ {
+  "title": "dove",
+  "essence primary": "muscle",
+  "essence secondary": "blood"
+ },
+ {
+  "title": "raven",
+  "essence primary": "muscle",
+  "essence secondary": "brain"
+ }
+]

@@ -1,52 +1,57 @@
 [
- {
-  "title": "volume",
-  "strength": "ethos",
-  "dexterity": "kairos",
-  "intellect": "logos",
-  "will": "pathos",
-  "min": 36,
-  "max": 49,
-  "rarity": 9
- },
- {
-  "title": "replenishment",
-  "strength": "regeneration",
-  "dexterity": "massage",
-  "intellect": "meditation",
-  "will": "mantra",
-  "min": 1,
-  "max": 4,
-  "rarity": 1
- },
- {
-  "title": "endeavor",
-  "strength": "fury",
-  "dexterity": "excitement",
-  "intellect": "calculation",
-  "will": "passion",
-  "min": 16,
-  "max": 25,
-  "rarity": 5
- },
- {
-  "title": "tension",
-  "strength": "power",
-  "dexterity": "impetuosity",
-  "intellect": "genius",
-  "will": "passion",
-  "min": 25,
-  "max": 36,
-  "rarity": 7
- },
- {
-  "title": "resistance",
-  "strength": "rigidity",
-  "dexterity": "flexibility",
-  "intellect": "erudition",
-  "will": "equanimity",
-  "min": 9,
-  "max": 16,
-  "rarity": 3
- }
+	{
+		"title": "volume",
+		"strength": "ethos",
+		"dexterity": "kairos",
+		"intellect": "logos",
+		"will": "pathos",
+		"min": 36,
+		"max": 49,
+		"rarity": 9,
+		"essence": "brain"
+	},
+	{
+		"title": "replenishment",
+		"strength": "regeneration",
+		"dexterity": "massage",
+		"intellect": "meditation",
+		"will": "mantra",
+		"min": 1,
+		"max": 4,
+		"rarity": 1,
+		"essence": "blood"
+	},
+	{
+		"title": "endeavor",
+		"strength": "fury",
+		"dexterity": "excitement",
+		"intellect": "calculation",
+		"will": "passion",
+		"min": 16,
+		"max": 25,
+		"rarity": 5,
+		"essence": "nerve"
+	},
+	{
+		"title": "tension",
+		"strength": "power",
+		"dexterity": "impetuosity",
+		"intellect": "genius",
+		"will": "passion",
+		"min": 25,
+		"max": 36,
+		"rarity": 7,
+		"essence": "muscle"
+	},
+	{
+		"title": "resistance",
+		"strength": "rigidity",
+		"dexterity": "flexibility",
+		"intellect": "erudition",
+		"will": "equanimity",
+		"min": 9,
+		"max": 16,
+		"rarity": 3,
+		"essence": "bone"
+	}
 ]
