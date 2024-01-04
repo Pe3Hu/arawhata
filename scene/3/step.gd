@@ -88,21 +88,23 @@ func rehue(hue_: float) -> void:
 
 
 func add_member(member_: MarginContainer) -> void:
-	if Global.num.step.limit >= markers.get_child_count():
-		if member_.marker == null:
-			var input = {}
-			input.type = "number"
-			input.subtype = member_.index.get_number()
+	if member_.step != self:
+		if Global.num.step.limit >= markers.get_child_count():
+			if member_.marker == null:
+				var input = {}
+				input.type = "number"
+				input.subtype = member_.index.get_number()
+				
+				member_.marker = Global.scene.icon.instantiate()
+				markers.add_child(member_.marker)
+				member_.marker.set_attributes(input)
+				member_.marker.custom_minimum_size = Vector2(Global.vec.size.sixteen)
+				member_.marker.bg.visible = true
+				member_.step = self
 			
-			member_.marker = Global.scene.icon.instantiate()
+			member_.step.markers.remove_child(member_.marker)
 			markers.add_child(member_.marker)
-			member_.marker.set_attributes(input)
-			member_.marker.custom_minimum_size = Vector2(Global.vec.size.sixteen)
-			member_.marker.bg.visible = true
-		
-		member_.step.markers.remove_child(member_.marker)
-		markers.add_child(member_.marker)
-		member_.step = self
+			member_.step = self
 		
 		obstacle_impact(member_)
 	else:

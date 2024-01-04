@@ -8,6 +8,7 @@ extends MarginContainer
 @onready var squads = $VBox/HBox/Squads
 @onready var queue = $VBox/HBox/Queue
 @onready var encounter = $VBox/Encounter
+@onready var podium = $VBox/Podium
 @onready var timer = $Timer
 
 var labyrinth = null
@@ -24,7 +25,7 @@ func set_attributes(input_: Dictionary) -> void:
 	init_aisles()
 	init_stashes()
 	init_travelers()
-	#Engine.time_scale = 3
+	Engine.time_scale = 3
 
 
 func init_steps() -> void:
@@ -354,7 +355,6 @@ func get_end_of_advancement(start_: MarginContainer, distance_: int) -> MarginCo
 
 
 func awarding() -> void:
-	return
 	var members = []
 	
 	for squad in squads.get_children():
@@ -362,3 +362,12 @@ func awarding() -> void:
 			members.append(member)
 	
 	members.sort_custom(func(a, b): return a.step.index.get_number() > b.step.index.get_number())
+	
+	var input = {}
+	input.ladder = self
+	input.winners = []
+	
+	for _i in 3:
+		input.winners.append(members[_i])
+	
+	podium.set_attributes(input)

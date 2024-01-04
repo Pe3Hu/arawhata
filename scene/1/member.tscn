@@ -55,4 +55,5 @@ visible = false
 layout_mode = 2
 
 [node name="Dominion" parent="HBox" instance=ExtResource("7_qucnh")]
+visible = false
 layout_mode = 2

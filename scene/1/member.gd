@@ -69,7 +69,9 @@ func advancement() -> void:
 		distance -= 1
 	
 	var end = squad.ladder.get_end_of_advancement(step, distance)
-	end.add_member(self)
+	
+	if end != step:
+		end.add_member(self)
 
 
 func get_root_based_on_occupancy() -> Array:

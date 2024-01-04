@@ -380,6 +380,7 @@ func init_vec():
 	vec.size.tattoo = Vector2(16, 16) * 3
 	vec.size.essence = Vector2(16, 16) * 2
 	vec.size.trigger = Vector2(16, 16) * 2
+	vec.size.place = Vector2(16, 16) * 1.5
 	#vec.size.part = Vector2(16, 16)
 	
 	init_window_size()
@@ -433,6 +434,11 @@ func init_color():
 	color.root.dexterity = Color.from_hsv(120 / h, 0.8, 0.6)
 	color.root.intellect = Color.from_hsv(210 / h, 0.8, 0.6)
 	color.root.will = Color.from_hsv(60 / h, 0.8, 0.6)
+	
+	color.place = {}
+	color.place[0] = Color.from_hsv(55 / h, 0.9, 0.9)
+	color.place[1] = Color.from_hsv(0 / h, 0.0, 0.75)
+	color.place[2] = Color.from_hsv(23 / h, 0.6, 0.6)
 
 
 func save(path_: String, data_: String):

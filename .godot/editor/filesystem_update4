@@ -20,3 +20,6 @@ res://scene/3/doorway.tscn
 res://scene/3/doorway.gd
 res://scene/3/aisle.gd
 res://scene/3/traveler.gd
+res://scene/3/step.gd
+res://scene/3/podium.tscn
+res://scene/3/podium.gd
