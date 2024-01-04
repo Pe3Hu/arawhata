@@ -19,7 +19,8 @@ func set_attributes(input_: Dictionary) -> void:
 
 
 func reset() -> void:
-	set_value("current", bar.max_value)
+	if root != "authority":
+		set_value("current", bar.max_value)
 
 
 func update_color() -> void:

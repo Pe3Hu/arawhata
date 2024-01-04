@@ -357,6 +357,9 @@ func init_scene() -> void:
 	
 	scene.ornament = load("res://scene/5/ornament.tscn")
 	scene.essence = load("res://scene/5/essence.tscn")
+	
+	scene.skill = load("res://scene/6/skill.tscn")
+	scene.trigger = load("res://scene/6/trigger.tscn")
 
 
 func init_vec():
@@ -376,6 +379,7 @@ func init_vec():
 	vec.size.facet = Vector2(64, 64) * 0.5
 	vec.size.tattoo = Vector2(16, 16) * 3
 	vec.size.essence = Vector2(16, 16) * 2
+	vec.size.trigger = Vector2(16, 16) * 2
 	#vec.size.part = Vector2(16, 16)
 	
 	init_window_size()
@@ -418,6 +422,9 @@ func init_color():
 	color.indicator.will = {}
 	color.indicator.will.fill = Color.from_hsv(60 / h, 0.9, 0.7)
 	color.indicator.will.background = Color.from_hsv(60 / h, 0.5, 0.9)
+	color.indicator.authority = {}
+	color.indicator.authority.fill = Color.from_hsv(270 / h, 0.9, 0.7)
+	color.indicator.authority.background = Color.from_hsv(270 / h, 0.5, 0.9)
 	
 	color.difficulty = Color.from_hsv(150 / h, 0.6, 0.7)
 	

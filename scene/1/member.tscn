@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://460rkj8trcn5"]
+[gd_scene load_steps=9 format=3 uid="uid://460rkj8trcn5"]
 
 [ext_resource type="Script" path="res://scene/1/member.gd" id="1_b0mcn"]
 [ext_resource type="PackedScene" uid="uid://bf62c6vgstb83" path="res://scene/2/rundown.tscn" id="2_yhv25"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://likoypjmwtku" path="res://scene/2/indicators.tscn" id="3_q5hon"]
 [ext_resource type="PackedScene" uid="uid://ds47n5r8t3fmq" path="res://scene/5/tattoo.tscn" id="5_32aih"]
 [ext_resource type="PackedScene" uid="uid://di71ji1ikc71a" path="res://scene/5/flesh.tscn" id="6_joma2"]
+[ext_resource type="PackedScene" uid="uid://bnjypdl7fbuim" path="res://scene/6/dominion.tscn" id="7_qucnh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7paps"]
 bg_color = Color(0.32549, 0.32549, 0.32549, 0)
@@ -51,4 +52,7 @@ layout_mode = 2
 
 [node name="Flesh" parent="HBox" instance=ExtResource("6_joma2")]
 visible = false
+layout_mode = 2
+
+[node name="Dominion" parent="HBox" instance=ExtResource("7_qucnh")]
 layout_mode = 2
