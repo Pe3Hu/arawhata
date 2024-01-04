@@ -169,9 +169,7 @@ func take_step() -> void:
 	
 	var side = Global.dict.traveler.doorway[type]
 	var doorway = step.get(side)
-	doorway.visible = true
-	var style = doorway.bg.get("theme_override_styles/panel")
-	style.bg_color = Global.color.traveler[type]
+	doorway.traveler_came(self)
 
 
 func step_out() -> void:
@@ -180,7 +178,7 @@ func step_out() -> void:
 	
 	var side = Global.dict.traveler.doorway[type]
 	var doorway = step.get(side)
-	doorway.visible = false
+	doorway.traveler_gone()
 
 
 func apply_impact(member_: MarginContainer) -> void:

@@ -7,14 +7,17 @@ extends MarginContainer
 @onready var reward = $HBox/Reward
 
 var ladder = null
+var step = null
 var type = null
 var part = null
 
 
 func set_attributes(input_: Dictionary) -> void:
 	ladder = input_.ladder
+	step = input_.step
 	
 	init_basic_setting()
+	step.set_stash(self)
 
 
 func init_basic_setting() -> void:
@@ -35,15 +38,15 @@ func init_basic_setting() -> void:
 	input.subtype = 1
 	difficulty.set_attributes(input)
 	difficulty.custom_minimum_size = Global.vec.size.sixteen
+	roll_difficulty()
 	
-	input.subtype = 0
+	input.subtype = difficulty.get_number()
 	reward.set_attributes(input)
 	reward.custom_minimum_size = Global.vec.size.sixteen
+	
 	style = difficulty.bg.get("theme_override_styles/panel")
 	style.bg_color = Global.color.difficulty
 	difficulty.bg.visible = true
-	
-	roll_difficulty()
 
 
 func roll_difficulty() -> void:

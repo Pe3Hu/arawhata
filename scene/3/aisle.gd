@@ -39,12 +39,19 @@ func init_basic_setting() -> void:
 	style.bg_color = Global.color.doorway.entry
 	index.bg.visible = true
 	
-	input.subtype = 1
+	input.subtype = 0
 	difficulty.set_attributes(input)
 	difficulty.custom_minimum_size = Global.vec.size.sixteen
 	style = difficulty.bg.get("theme_override_styles/panel")
 	style.bg_color = Global.color.difficulty
 	difficulty.bg.visible = true
+	
+	match measure:
+		"step":
+			steps.front().neighbors.next = steps.back()
+			steps.back().neighbors.prior = steps.front()
+		"stairwell":
+			roll_difficulty()
 	
 	for _i in steps.size():
 		var step = steps[_i]
@@ -57,13 +64,6 @@ func init_basic_setting() -> void:
 				_type = "exit"
 		
 		set_doorway(step, _type)
-	
-	match measure:
-		"step":
-			steps.front().neighbors.next = steps.back()
-			steps.back().neighbors.prior = steps.front()
-		"stairwell":
-			roll_difficulty()
 
 
 func set_doorway(step_: MarginContainer, type_: String) -> void:

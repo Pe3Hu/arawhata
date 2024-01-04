@@ -188,11 +188,11 @@ func init_stashes() -> void:
 		
 		var input = {}
 		input.ladder = self
+		input.step = step
 		
 		var stash = Global.scene.stash.instantiate()
 		stashes.add_child(stash)
 		stash.set_attributes(input)
-		step.set_stash(stash)
 
 
 func init_travelers() -> void:

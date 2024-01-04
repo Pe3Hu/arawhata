@@ -29,3 +29,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7paps")
 
 [node name="Index" parent="." instance=ExtResource("2_8334v")]
 layout_mode = 2
+
+[node name="Difficulty" parent="." instance=ExtResource("2_8334v")]
+layout_mode = 2
